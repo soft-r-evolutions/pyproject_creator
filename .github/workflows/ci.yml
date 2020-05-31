@@ -22,12 +22,31 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
-
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
+    - name: test no option
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        ./pyproject_creator.sh my_project "My Project"
+
+    - name: test invalid parameters
+      run: |
+        ! ./pyproject_creator.sh
+        ! ./pyproject_creator.sh my_project
+
+    - name: test github option erase
+      run: |
+        ! ./pyproject_creator.sh my_project "My Project"
+        ./pyproject_creator.sh my_project "My Project" erase
+
+    - name: test github option with project space
+      run: |
+        ./pyproject_creator.sh my_project "My project" erase,github soft-r-evolution
+        grep "soft-r-evolution.*my_project.*badge" projects/my_project/README.md
+
+    - name: test github option without project space
+      run: |
+        ./pyproject_creator.sh my_project "My Project" erase,github
+        ! grep "badge" projects/my_project/README.md
+
+    - name: test README.md common
+      run: |
+        ./pyproject_creator.sh my_project "My Project" erase
+        grep "My Project" projects/my_project/README.md
