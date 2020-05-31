@@ -1,10 +1,8 @@
-# lib.s_utils
+# [EndUserProjectName]
 
-![Python package](https://github.com/soft-r-evolution/lib.s_utils/workflows/Python%20package/badge.svg)
+![Python%20package](https://github.com/[ProjectSpace]/[ProjectName]/workflows/Python%20package/badge.svg)
 
-This library is used to provided some common operations for most of the projects. Such as:
-
-* Get safely a key in a dictionary
+Insert project description here
 
 ## Installation
 
