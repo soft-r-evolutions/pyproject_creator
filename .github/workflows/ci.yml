@@ -24,26 +24,29 @@ jobs:
 
     - name: test no option
       run: |
-        ./pyproject_creator.sh test Test
+        ./pyproject_creator.sh my_project "My Project"
 
     - name: test invalid parameters
       run: |
         ! ./pyproject_creator.sh
-        ! ./pyproject_creator.sh test
+        ! ./pyproject_creator.sh my_project
 
     - name: test github option erase
       run: |
-        ! ./pyproject_creator.sh test Test
-        ./pyproject_creator.sh test Test erase
+        ! ./pyproject_creator.sh my_project "My Project"
+        ./pyproject_creator.sh my_project "My Project" erase
 
     - name: test github option with project space
       run: |
-        ./pyproject_creator.sh test Test erase,github soft-r-evolution
-        grep "soft-r-evolution.*test.*badge" projects/test/README.md
+        ./pyproject_creator.sh my_project "My project" erase,github soft-r-evolution
+        grep "soft-r-evolution.*my_project.*badge" projects/my_project/README.md
 
     - name: test github option without project space
       run: |
-        ./pyproject_creator.sh test Test erase,github
-        ! grep "badge" projects/test/README.md
+        ./pyproject_creator.sh my_project "My Project" erase,github
+        ! grep "badge" projects/my_project/README.md
 
-
+    - name: test README.md common
+      run: |
+        ./pyproject_creator.sh my_project "My Project" erase
+        grep "My Project" projects/my_project/README.md
