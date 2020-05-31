@@ -72,6 +72,6 @@ else
     run "sed -i '/\[ProjectSpace\]/d' ${project_path}/README.md"
 fi
 
-run "tree ${project_path}" "display"
+run "tree ${project_path} || true" "display"
 
 end_script 0
