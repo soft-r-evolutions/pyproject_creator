@@ -50,3 +50,18 @@ jobs:
       run: |
         ./pyproject_creator.sh my_project "My Project" erase
         grep "My Project" projects/my_project/README.md
+
+    - name: test README.md common
+      run: |
+        ./pyproject_creator.sh my_project "My Project" erase
+        grep "My Project" projects/my_project/README.md
+
+    - name: test github option with project space for LICENSE
+      run: |
+        ./pyproject_creator.sh my_project "My project" erase,github soft-r-evolution
+        grep "soft-r-evolution" projects/my_project/LICENSE
+
+    - name: test LICENSE common
+      run: |
+        ./pyproject_creator.sh my_project "My project" erase
+        ! grep "\[ProjectSpace\]" projects/my_project/LICENSE
