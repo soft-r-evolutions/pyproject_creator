@@ -31,25 +31,17 @@ fi
 W=$(dirname $(realpath $0))
 source ${W}/data/scripts/bash_utils.sh
 
-
 export output_path="${W}/projects"
 export log_file_name="${W}/projects/$1_creation.log"
 
 start_script
 
-set_var project_name "$1" "end_user"
-set_var project_path "${output_path}/${project_name}" "end_user"
-set_var end_user_project_name "$2" "end_user"
-set_var options "$3" "end_user"
-set_var project_space "$4" "end_user"
+source ${W}/scripts/set_constants.sh
 
 if [[ "${options}" == *"erase"* ]]; then
     log "Previous folder erase requested" "end_user"
     run "[ -e ${project_path} ] && rm -rf ${project_path} && echo \"Previous existing folder was removed.\" || true" "display"
 fi
-
-set_var template_dir "${W}/template"
-add_file_vars readme "README.md"
 
 log "Check conditions:" "end_user"
 log "-- Check if the destination folder already exist:" "end_user"
