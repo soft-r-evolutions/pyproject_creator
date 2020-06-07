@@ -1,32 +1,6 @@
 #!/bin/bash
 
-function usage {
-    error_code=$1
-    echo "Initialize a python project" 
-    echo "./pyproject-creator.sh PROJECT_NAME  \"End user ProjectName\" [OPTIONS] [Github_projectspace]"
-    echo "With:"
-    echo "PROJECT_NAME: your Python project name"
-    echo "End user ProjectName: Project name for documentation..."
-    echo "OPTIONS can be combined by any seperator except space."
-    echo "Option list are: "
-    echo "- simple: your module contain a single file."
-    echo "- github your module integrate a github workflow."
-    echo "- erase: your module integrate a github workflow."
-    echo "Github_projectspace: if your module integrate a github workflow specify github project space."
-    echo ""
-    echo "The new project will be written to projects folder."
-    echo "If the output folder already exists the project will exit"
-    echo "in error."
-    exit ${error_code}
-}
-
-if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
-    usage 0
-fi
-
-if [ "$#" -lt 2 ]; then
-    usage 1
-fi
+source ${W}/scripts/check_launch_errors.sh
 
 W=$(dirname $(realpath $0))
 source ${W}/data/scripts/bash_utils.sh
@@ -37,8 +11,9 @@ export log_file_name="${W}/projects/$1_creation.log"
 start_script
 
 source ${W}/scripts/set_constants.sh
+source ${W}/scripts/check_args.sh
 
-if [[ "${options}" == *"erase"* ]]; then
+if [[ "${has_erase_option}" == "True" ]]; then
     log "Previous folder erase requested" "end_user"
     run "[ -e ${project_path} ] && rm -rf ${project_path} && echo \"Previous existing folder was removed.\" || true" "display"
 fi
@@ -58,7 +33,7 @@ log "-- Add the README" "end_user"
 run "cp ${template_dir}/README.md ${project_path}/README.md"
 run "sed -i 's/\[EndUserProjectName\]/${end_user_project_name}/g' ${project_path}/README.md"
 run "sed -i 's/\[ProjectName\]/${project_name}/g' ${project_path}/README.md"
-if [[ ${options} == *"github"* ]] && [ "${project_space}" != "" ]; then
+if [ "${is_github}" == "True" ]; then
     run "sed -i 's/\[ProjectSpace\]/${project_space}/g' ${project_path}/README.md"
 else
     run "sed -i '/\[ProjectSpace\]/d' ${project_path}/README.md"
@@ -66,7 +41,7 @@ fi
 
 log "-- Add the MIT LICENSE" "end_user"
 run "cp ${template_dir}/LICENSE.mit ${project_path}/LICENSE"
-if [[ ${options} == *"github"* ]] && [ "${project_space}" != "" ]; then
+if [ "${is_github}" == "True" ]; then
     run "sed -i 's/\[ProjectSpace\]/${project_space}/g' ${project_path}/LICENSE"
 else
     run "sed -i '/\[ProjectSpace\]/d' ${project_path}/LICENSE"
