@@ -1,8 +1,7 @@
 #!/bin/bash
 
-source ${W}/scripts/check_launch_errors.sh
-
 W=$(dirname $(realpath $0))
+source ${W}/scripts/check_launch_errors.sh
 source ${W}/data/scripts/bash_utils.sh
 
 export output_path="${W}/projects"
