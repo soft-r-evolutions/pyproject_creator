@@ -1,5 +1,3 @@
-set_var blockname license
-
 function init_license {
     run "cp ${template_dir}/LICENSE.mit ${project_path}/LICENSE"
 }

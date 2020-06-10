@@ -1,5 +1,3 @@
-set_var blockname readme
-
 function init_readme {
     run "cp ${template_dir}/README.md ${project_path}/README.md"
 }

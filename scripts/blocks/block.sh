@@ -1,3 +1,6 @@
+set_var blockname "$(basename ${BASH_SOURCE[1]})"
+set_var blockname "${blockname%.*}"
+
 function init {
     log "-- Initializing ${blockname}..."
     init_${blockname}

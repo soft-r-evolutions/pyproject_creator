@@ -16,10 +16,7 @@ source ${W}/scripts/init_project.sh
 
 source ${W}/scripts/blocks/readme.sh
 source ${W}/scripts/blocks/license.sh
-
-
-log "-- Add the .gitignore" "end_user"
-run "cp ${template_dir}/.gitignore ${project_path}/.gitignore"
+source ${W}/scripts/blocks/gitignore.sh
 
 run "tree ${project_path} || true" "display"
 
