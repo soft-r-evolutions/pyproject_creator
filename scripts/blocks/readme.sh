@@ -14,6 +14,20 @@ function process_readme {
     fi
 }
 
+function test_readme {
+    run "! grep \"\[EndUserProjectName\]\" ${project_path}/README.md"
+    run "grep \"${end_user_project_name}\" ${project_path}/README.md"
+    run "! grep \"\[ProjectName\]\" ${project_path}/README.md"
+    run "grep \"${project_name}\" ${project_path}/README.md"
+
+    if [ "${is_github}" == "True" ]; then
+        run "! grep \"\[ProjectSpace\]\" ${project_path}/README.md"
+        run "grep \"${project_space}\" ${project_path}/README.md"
+    else
+        run "! grep \"badge\" projects/my_project/README.md"
+    fi
+}
+
 source ${W}/scripts/blocks/block.sh
 execute
 
