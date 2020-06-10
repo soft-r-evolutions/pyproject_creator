@@ -15,14 +15,8 @@ source ${W}/scripts/check_args.sh
 source ${W}/scripts/init_project.sh
 
 source ${W}/scripts/blocks/readme.sh
+source ${W}/scripts/blocks/license.sh
 
-log "-- Add the MIT LICENSE" "end_user"
-run "cp ${template_dir}/LICENSE.mit ${project_path}/LICENSE"
-if [ "${is_github}" == "True" ]; then
-    run "sed -i 's/\[ProjectSpace\]/${project_space}/g' ${project_path}/LICENSE"
-else
-    run "sed -i '/\[ProjectSpace\]/d' ${project_path}/LICENSE"
-fi
 
 log "-- Add the .gitignore" "end_user"
 run "cp ${template_dir}/.gitignore ${project_path}/.gitignore"
