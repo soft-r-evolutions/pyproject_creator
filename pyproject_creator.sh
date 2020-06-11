@@ -17,6 +17,7 @@ source ${W}/scripts/init_project.sh
 source ${W}/scripts/blocks/readme.sh
 source ${W}/scripts/blocks/license.sh
 source ${W}/scripts/blocks/gitignore.sh
+source ${W}/scripts/blocks/requirements.sh
 
 run "tree ${project_path} || true" "display"
 
