@@ -2,7 +2,6 @@ function init_simple {
     run "cp ${template_dir}/simple/project_name.py ${project_path}/${project_name}.py"
     run "cp ${template_dir}/simple/test_project_name.py ${project_path}/test_${project_name}.py"
     run "cp ${template_dir}/simple/.coveragerc ${project_path}/.coveragerc"
-    run "cp ${template_dir}/simple/README.md ${project_path}/README.md"
 }
 
 function process_simple {

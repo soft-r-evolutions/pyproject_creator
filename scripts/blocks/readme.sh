@@ -1,5 +1,7 @@
 function init_readme {
-    run "cp ${template_dir}/README.md ${project_path}/README.md"
+    if [ ${app_layout} == 'simple' ]; then
+        run "cp ${template_dir}/simple/README.md ${project_path}/README.md"
+    fi
 }
 
 function process_readme {
