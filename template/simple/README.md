@@ -50,18 +50,18 @@ black . --exclude venv
 Stop the build if Python syntax errors or undefined names
 
 ```
-flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+flake8 . --exclude venv --count --select=E9,F63,F7,F82 --show-source --statistics
 ```
 
 Treats all errors as warnings
 
 ```
-flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+flake8 . --exclude venv --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 ```
 
 ## Run the tests
 
 ```
-pytest --cov-config=.coveragerc --cov=. --cov-report=html --cov-report=term --ignore=venv --log-cli-level=6 .
+pytest --cov-config=.coveragerc --cov=. --cov-report=html --cov-report=term --log-cli-level=6 .
 xdg-open htmlcov/index.html
 ```

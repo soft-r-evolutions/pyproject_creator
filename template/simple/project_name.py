@@ -1,6 +1,7 @@
 import sys
 
-class ProjectName():
+
+class ProjectName:
     def __init__(self):
         pass
 
@@ -8,10 +9,12 @@ class ProjectName():
         print("hello")
         return 0
 
+
 def main():
     projectName = ProjectName()
-    errorCode = projectName.run()
-    sys.exit(errorCode)
+    return projectName.run()
 
-if __name__ == '__main__':
-    main()
+
+if __name__ == "__main__":
+    errorCode = main()
+    sys.exit(errorCode)

@@ -1,4 +1,4 @@
 [run]
 omit = 
     venv/*
-    tests.py
+    test_project_name.py
