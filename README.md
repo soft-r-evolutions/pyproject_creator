@@ -66,3 +66,9 @@ Erase option will overwrite previous project.
 ```bash
 ./pyproject_creator.sh my_project "My project" complex,erase,github soft-r-evolution
 ```
+
+## References
+
+* [Python Application Layout](https://realpython.com/python-application-layouts/)
+* [Docs Python Guide - Structuring](https://docs.python-guide.org/writing/structure/)
+* [Semantic Versionning](https://semver.org/)
