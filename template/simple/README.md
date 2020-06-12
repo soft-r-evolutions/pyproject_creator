@@ -65,3 +65,10 @@ flake8 . --exclude venv --count --exit-zero --max-complexity=10 --max-line-lengt
 pytest --cov-config=.coveragerc --cov=. --cov-report=html --cov-report=term --log-cli-level=6 .
 xdg-open htmlcov/index.html
 ```
+
+## References
+
+* [Python Application Layout](https://realpython.com/python-application-layouts/)
+* [Semantic Versionning](https://semver.org/)
+
+[Powered by PyProject Creator - MIT License](https://github.com/soft-r-evolutions/pyproject_creator)
