@@ -42,8 +42,7 @@ pip install pytest pytest-cov
 Run black to help to fix linter issues. Warning must be done is separate commits for QA.
 
 ```
-black s_utils
-black tests
+black . --exclude venv
 ```
 
 ### Run the linter
@@ -51,20 +50,18 @@ black tests
 Stop the build if Python syntax errors or undefined names
 
 ```
-flake8 s_utils --count --select=E9,F63,F7,F82 --show-source --statistics
-flake8 tests --count --select=E9,F63,F7,F82 --show-source --statistics
+flake8 . --exclude venv --count --select=E9,F63,F7,F82 --show-source --statistics
 ```
 
 Treats all errors as warnings
 
 ```
-flake8 s_utils --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-flake8 tests --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+flake8 . --exclude venv --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 ```
 
 ## Run the tests
 
 ```
-pytest --cov=s_utils --cov-report=html --cov-report=term --log-cli-level=6 tests
+pytest --cov-config=.coveragerc --cov=. --cov-report=html --cov-report=term --log-cli-level=6 .
 xdg-open htmlcov/index.html
 ```
