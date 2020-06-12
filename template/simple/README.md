@@ -42,7 +42,7 @@ pip install pytest pytest-cov
 Run black to help to fix linter issues. Warning must be done is separate commits for QA.
 
 ```
-black .
+black . --exclude venv
 ```
 
 ### Run the linter
