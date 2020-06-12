@@ -19,7 +19,7 @@ source ${W}/scripts/blocks/license.sh
 source ${W}/scripts/blocks/gitignore.sh
 source ${W}/scripts/blocks/requirements.sh
 
-if [ ${app_layout} == "simple" ]; then
+if [ "${app_layout}" == "simple" ]; then
     source ${W}/scripts/blocks/simple.sh
 fi
 

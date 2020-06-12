@@ -14,12 +14,12 @@ fi
 if [[ "${options}" == *"simple"* ]]; then
     log "Simple application layout detected" "end_user"
     set_var app_layout "simple"
-if [[ "${options}" == *"single"* ]]; then
-    log "Single package layout detected" "end_user"
-    set_var app_layout "single"
-if [[ "${options}" == *"complex"* ]]; then
-    log "Application with internal lib layout detected" "end_user"
-    set_var app_layout "complex"
+#elif [[ "${options}" == *"single"* ]]; then
+#    log "Single package layout detected" "end_user"
+#    set_var app_layout "single"
+#if [[ "${options}" == *"complex"* ]]; then
+#    log "Application with internal lib layout detected" "end_user"
+#    set_var app_layout "complex"
 else
     log "No application layout detected: use simple as default. Use single or complex to change it." "end_user"
     set_var app_layout "simple"

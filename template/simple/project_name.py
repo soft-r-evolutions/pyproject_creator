@@ -8,7 +8,10 @@ class ProjectName():
         print("hello")
         return 0
 
-if __name__ == __main__:
+def main():
     projectName = ProjectName()
     errorCode = projectName.run()
     sys.exit(errorCode)
+
+if __name__ == '__main__':
+    main()

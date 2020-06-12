@@ -15,7 +15,7 @@ function process {
 
 function test_result {
     log "-- Processing ${blockname}..."
-    process_${blockname}
+    test_${blockname}
     log "--${blockname} Processed."
 }
 
