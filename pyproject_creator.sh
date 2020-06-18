@@ -21,6 +21,8 @@ source ${W}/scripts/blocks/requirements.sh
 
 if [ "${app_layout}" == "simple" ]; then
     source ${W}/scripts/blocks/simple.sh
+    echo "You can now go to edit the project description in README.md"
+    echo "You can now go to edit your name, email, license in setup.py"
 fi
 
 run "tree ${project_path} || true" "display"

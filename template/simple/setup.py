@@ -6,6 +6,7 @@ setup(
     version=(open("VERSION").read()).rstrip(),
     author="author",
     author_email="author_email",
+    license="MIT",
     url="https://github.com/[ProjectSpace]/[project_name]",
     description="Project description",
     long_description_content_type="text/markdown",

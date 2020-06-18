@@ -3,6 +3,7 @@ function init_simple {
     run "cp ${template_dir}/simple/test_project_name.py ${project_path}/test_${project_name}.py"
     run "cp ${template_dir}/simple/.coveragerc ${project_path}/.coveragerc"
     run "cp ${template_dir}/simple/setup.py ${project_path}/setup.py"
+    run "cp ${template_dir}/simple/MANIFEST.in ${project_path}/MANIFEST.in"
     run "cp ${template_dir}/VERSION ${project_path}/VERSION"
 }
 
