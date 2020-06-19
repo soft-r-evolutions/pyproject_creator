@@ -14,7 +14,6 @@ You have 3 differents application layouts:
 
 * simple: Simple application layout (only one script).
 * single: Single Package project layout.
-* complex: Application with internal libs
 
 ### Application environment
 
@@ -32,10 +31,9 @@ PROJECT_NAME: your Python project name
 End user ProjectName: Project name for documentation...
 OPTIONS can be combined by any seperator except space.
 Option list are: 
-- [simple|single|complex]: Python project layout.
+- [simple|single]: Python project layout.
 -   simple: Simple application project layout.
 -   single: Single package project layout.
--   complex: Application with internal lib project layout.
 - github your module integrate a github workflow.
 - erase: your module integrate a github workflow.
 Github_projectspace: if your module integrate a github workflow specify github project space.
@@ -64,7 +62,7 @@ Erase option will overwrite previous project.
 Erase option will overwrite previous project.
 
 ```bash
-./pyproject_creator.sh my_project "My project" complex,erase,github soft-r-evolution
+./pyproject_creator.sh my_project "My project" single,erase,github soft-r-evolution
 ```
 
 ## References
