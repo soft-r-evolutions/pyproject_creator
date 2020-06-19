@@ -66,6 +66,20 @@ pytest --cov-config=.coveragerc --cov=. --cov-report=html --cov-report=term --lo
 xdg-open htmlcov/index.html
 ```
 
+## Packaging
+
+### Make a distributable package
+
+```
+python3 setup.py sdist
+```
+
+### Install local package
+
+```
+pip install path/to/file.tar.gz
+```
+
 ## References
 
 * [Python Application Layout](https://realpython.com/python-application-layouts/)

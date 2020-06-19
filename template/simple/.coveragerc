@@ -2,3 +2,4 @@
 omit = 
     venv/*
     test_project_name.py
+    setup.py
