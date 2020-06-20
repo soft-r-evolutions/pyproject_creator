@@ -3,7 +3,7 @@ from project_name import truth_is_out_there
 
 
 def main():
-    print (truth_is_out_there())
+    print(truth_is_out_there())
     return 0
 
 

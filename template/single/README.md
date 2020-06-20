@@ -50,21 +50,21 @@ black [ProjectName]
 Stop the build if Python syntax errors or undefined names
 
 ```
-flake8 [ProjectName] --count --select=E9,F63,F7,F82 --show-source --statistics
+flake8 [ProjectName] --exclude [ProjectName]/__init__.py --count --select=E9,F63,F7,F82 --show-source --statistics
 flake8 tests --count --select=E9,F63,F7,F82 --show-source --statistics
 ```
 
 Treats all errors as warnings
 
 ```
-flake8 [ProjectName] --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+flake8 [ProjectName] --exclude [ProjectName]/__init__.py --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 flake8 tests --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 ```
 
 ## Run the tests
 
 ```
-pytest --cov-config=.coveragerc --cov=[ProjectName] --cov-report=html --cov-report=term --log-cli-level=6 [ProjectName]
+pytest --cov-config=.coveragerc --cov=[ProjectName] --cov-report=html --cov-report=term --log-cli-level=6 tests
 xdg-open htmlcov/index.html
 ```
 

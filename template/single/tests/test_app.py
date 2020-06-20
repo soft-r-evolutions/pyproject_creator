@@ -1,4 +1,4 @@
-from app import main
+from project_name.app import main
 import subprocess
 
 
