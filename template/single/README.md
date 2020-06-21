@@ -43,6 +43,7 @@ Run black to help to fix linter issues. Warning must be done is separate commits
 
 ```
 black [ProjectName]
+black tests
 ```
 
 ### Run the linter
